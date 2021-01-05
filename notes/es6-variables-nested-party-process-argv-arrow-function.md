@@ -1,4 +1,4 @@
-[**Back to Home**](./README.md)
+[**Back to Home**](./../README.md)
 
 # ES6 Variables, Nested Party, Process Argv, Arrow Function
 
@@ -11,4 +11,4 @@
 - [Arrow Function](./arrow-function.md)
 - [`process.argv`](./process-argv.md)
 
-[**Back to Home**](./README.md)
+[**Back to Home**](./../README.md)
