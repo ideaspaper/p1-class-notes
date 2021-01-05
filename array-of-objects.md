@@ -2,7 +2,7 @@
 
 # Array of Objects
 
-Cara lain untuk merepresentasikan user di atas adalah menggunakan tipe struktur data object literal.
+Cara lain untuk merepresentasikan user adalah menggunakan tipe struktur data object literal.
 
 ```javascript
 const user = {
