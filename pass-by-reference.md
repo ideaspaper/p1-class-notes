@@ -10,7 +10,7 @@ let b = a;
 console.log(`nilai a: ${a}, nilai b: ${b}`);
 ```
 
-Bagaimana dengan Array & Object?
+Bagaimana dengan array dan object?
 
 ```javascript
 let a = [39, 40, 41, 42];
