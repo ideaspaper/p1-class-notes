@@ -14,6 +14,46 @@ const participant = {
 };
 ```
 
+Apabila terdapat array of object seperti di bawah. Bagaimana kita dapat mengakses elemennya?
+
+```javascript
+const participants = [
+  {
+    userId: 7839,
+    username: 'Acong',
+    email: 'a@cong.com',
+    maritalStatus: false,
+    scores: [8, 8, 7, 6]
+  },
+  {
+    userId: 7840,
+    username: 'Djoko',
+    email: 'd@joko.com',
+    maritalStatus: false,
+    scores: [8, 8, 8, 8]
+  },
+  {
+    userId: 7841,
+    username: 'Sitorus',
+    email: 's@itorus.com',
+    maritalStatus: true,
+    scores: [10, 8, 8, 9]
+  }
+];
+
+// Mengakses id Acong
+console.log(participants[0].userId);
+
+// Mengakses email Sitorus
+console.log(participants[2].email);
+
+// Mengakses huruf 'd' pada email Djoko
+console.log(participants[1].email[0]);
+
+// Mengakses score ke 4 dari Acong
+console.log(participants[0].scores[3]);
+```
+
 ## PRACTICE
 
 ```javascript

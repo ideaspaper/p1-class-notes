@@ -38,7 +38,39 @@ const users = [
 ];
 ```
 
-Contoh di atas disebut juga sebagai array of objects.
+Contoh di atas disebut juga sebagai array of objects. Bagaimana cara mengakses salah satu value pada array of objects?
+
+```javascript
+const users = [
+  {
+    userId: 7839,
+    username: 'Acong',
+    email: 'a@cong.com',
+    maritalStatus: false
+  },
+  {
+    userId: 7840,
+    username: 'Djoko',
+    email: 'd@joko.com',
+    maritalStatus: false
+  },
+  {
+    userId: 7841,
+    username: 'Sitorus',
+    email: 's@itorus.com',
+    maritalStatus: true
+  }
+];
+
+// Mengakses id Acong
+console.log(users[0].userId);
+
+// Mengakses email Sitorus
+console.log(users[2].email);
+
+// Mengakses huruf 'd' pada email Djoko
+console.log(users[1].email[0]);
+```
 
 ## PRACTICE
 

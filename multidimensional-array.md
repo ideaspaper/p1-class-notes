@@ -29,6 +29,25 @@ const users = [
 ];
 ```
 
+Sebuah array yang berisi array seperti di atas disebut juga sebagai multidimensional array. Bagaimana cara mengakses salah satu elemen pada multidimensional array?
+
+```javascript
+const users = [
+  [7839, 'Acong', 'a@cong.com', false],
+  [7840, 'Djoko', 'd@joko.com', false],
+  [7841, 'Sitorus', 's@itorus.com', true]
+];
+
+// Mengakses id Acong
+console.log(users[0][0]);
+
+// Mengakses email Sitorus
+console.log(users[2][2]);
+
+// Mengakses huruf 'd' pada email Djoko
+console.log(users[1][2][0]);
+```
+
 Sebuah array yang berisi array seperti di atas disebut juga sebagai multidimensional array.
 
 ## PRACTICE

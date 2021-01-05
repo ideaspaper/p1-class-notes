@@ -1,6 +1,6 @@
 [**Back**](./es6-variables-nested-party-process-argv-arrow-function.md)
 
-# `var`, `let`, `const`
+# `var`, `let`, `const` dan String Literal
 
 ## Scope
 
@@ -138,5 +138,31 @@ const myNumber = 42;
 myMessage = 'JavaScript';
 myNumber = 10; // TypeError: Assignment to constant variable.
 ```
+
+## String Literal
+
+Terkadang kita butuh untuk menampilkan sebuah kalimat bersama dengan beberapa nilai variable. Sebagai contoh amati kode program di bawah.
+
+```javascript
+const nama = 'Acong';
+const gender = 'Pria';
+const umur = 17;
+const pekerjaan = 'Siswa';
+
+console.log('Saya adalah seorang ' + gender + ' berumur ' + umur + ' tahun dengan nama ' +  nama + '. Saya adalah seorang ' + pekerjaan + '.');
+```
+
+Dengan memanfaatkan string literal, kita dapat menyederhanakan kode program di atas menjadi seperti berikut.
+
+```javascript
+const nama = 'Acong';
+const gender = 'Pria';
+const umur = 17;
+const pekerjaan = 'Siswa';
+
+console.log(`Saya adalah seorang ${gender} berumur ${umur} tahun dengan nama ${nama}. Saya adalah seorang ${pekerjaan}.`);
+```
+
+String literal dapat membuat kode program kita menjadi lebih mudah dibaca.
 
 [**Back**](./es6-variables-nested-party-process-argv-arrow-function.md)
