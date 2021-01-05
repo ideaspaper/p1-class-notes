@@ -19,6 +19,6 @@ console.log(regAddFunction(4, 7));
 console.log(arrowAddFunction(4, 7));
 ```
 
-[Referensi syntax arrow function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions#Syntax).
+[Sumber: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions#Syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions#Syntax)
 
 [**Back**](./es6-variables-nested-party-process-argv-arrow-function.md)
