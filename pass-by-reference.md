@@ -36,50 +36,29 @@ console.log('nilai a:', a, 'nilai b:', b);
 
 Jadi bagaimana cara kita untuk menyalin sebuah array atau object?
 
-## Shallow Copy
+## Menyalin Sebuah Array atau Object
 
-Kita dapat menggunakan [spread syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax). Disebut sebagai shallow copy karena hanya level terluar saja yang akan disalin.
-
-```javascript
-let a = [39, 40, 41, 42];
-let b = [...a];
-console.log('nilai a:', a, 'nilai b:', b); // nilai a: [ 39, 40, 41, 42 ] nilai b: [ 39, 40, 41, 42 ]
-b[0] = 10;
-console.log('nilai a:', a, 'nilai b:', b); // nilai a: [ 39, 40, 41, 42 ] nilai b: [ 10, 40, 41, 42 ]
-
-let c = [[0, 1, 2, 3], 40, 41, 42];
-let d = [...c];
-console.log('nilai c:', c, 'nilai d:', d);
-// nilai c: [ [ 0, 1, 2, 3 ], 40, 41, 42 ] nilai d: [ [ 0, 1, 2, 3 ], 40, 41, 42 ]
-d[0][0] = 10;
-d[1] = 99;
-console.log('nilai c:', c, 'nilai d:', d);
-// nilai c: [ [ 10, 1, 2, 3 ], 40, 41, 42 ] nilai d: [ [ 10, 1, 2, 3 ], 99, 41, 42 ]
-```
-
-Pada contoh di atas, saat kita mengganti nilai `d[0][0]`, maka `c[0][0]` akan ikut terganti. Hal tersebut dikarenakan hanya nilai elemen terluar `c` saja yang di-assign ke `d`. Dalam hal ini `c[0]` adalah sebuah array, sehingga yang di-assign ke `d` adalah sebuah reference.
-
-## Deep Copy
-
-Tidak seperti shallow copy, deep copy akan menyalin semua elemen sampai ke dalam. Kita dapat memanfaatkan [JSON.parse](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse) dan [JSON.stringify](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) untuk keperluan deep copy.
+Ada banyak teknik yang dapat digunakan untuk menyalin (clone) array ataupun object. Namun karena kita baru saja belajar mengenai recursive function, berikut adalah contoh implementasi fungsi untuk menyalin sebuah array.
 
 ```javascript
-let a = [39, 40, 41, 42];
-let b = JSON.parse(JSON.stringify(a));
-console.log('nilai a:', a, 'nilai b:', b);
-// nilai a: [ 39, 40, 41, 42 ] nilai b: [ 39, 40, 41, 42 ]
-b[0] = 10;
-console.log('nilai a:', a, 'nilai b:', b);
-// nilai a: [ 39, 40, 41, 42 ] nilai b: [ 10, 40, 41, 42 ]
+function arrClone(array) {
+  if (!Array.isArray(array)) {
+    return array;
+  }
+  const result = [];
+  for (let i = 0; i < array.length; i++) {
+    result.push(arrClone(array[i]));
+  }
+  return result;
+}
 
-let c = [[0, 1, 2, 3], 40, 41, 42];
-let d = JSON.parse(JSON.stringify(c));
-console.log('nilai c:', c, 'nilai d:', d);
-// nilai c: [ [ 0, 1, 2, 3 ], 40, 41, 42 ] nilai d: [ [ 0, 1, 2, 3 ], 40, 41, 42 ]
-d[0][0] = 10;
-d[1] = 99;
-console.log('nilai c:', c, 'nilai d:', d);
-// nilai c: [ [ 0, 1, 2, 3 ], 40, 41, 42 ] nilai d: [ [ 10, 1, 2, 3 ], 99, 41, 42 ]
+let a = [[1, 2], 3];
+let b = arrClone(a);
+console.log('nilai a:', a, 'nilai b:', b);
+// nilai a: [ [ 1, 2 ], 3 ] nilai b: [ [ 1, 2 ], 3 ]
+b[0][0] = 10;
+console.log('nilai a:', a, 'nilai b:', b);
+// nilai a: [ [ 1, 2 ], 3 ] nilai b: [ [ 10, 2 ], 3 ]
 ```
 
 [**Back**](./es6-variables-nested-party-process-argv-arrow-function.md)

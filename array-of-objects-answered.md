@@ -139,11 +139,6 @@ function notMarried(users) {
   return result;
 }
 
-// Alternatif menggunakan built-in function filter
-// function notMarried(users) {
-//   return users.filter((user) => user.maritalStatus === false);
-// }
-
 console.log(longestEmail(users));
 // {
 //   userId: 7844,
