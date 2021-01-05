@@ -26,7 +26,7 @@ console.log(argv);
 
 ## Practice
 
-Buat sebuah program kalkulator `process.argv`.
+Buat sebuah program kalkulator yang memanfaatkan `process.argv` untuk menerima input user.
 
 [Answers](./process-argv-answered.md)
 

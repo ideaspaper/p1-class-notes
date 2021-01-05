@@ -4,7 +4,7 @@
 
 Pada saat kita mengeksekusi command `node index.js`, sebenarnya kita dapat memberikan argumen. Argumen tersebut kemudian dapat digunakan oleh kode program pada saat eksekusi.
 
-[Sumber dokumentasi: https://nodejs.org/docs/latest-v14.x/api/process.html#process_process_argv](https://nodejs.org/docs/latest-v14.x/api/process.html#process_process_argv)
+[Sumber: https://nodejs.org/docs/latest-v14.x/api/process.html#process_process_argv](https://nodejs.org/docs/latest-v14.x/api/process.html#process_process_argv)
 
 ```javascript
 const argv = process.argv;
@@ -26,7 +26,7 @@ console.log(argv);
 
 ## Practice
 
-Buat sebuah program kalkulator `process.argv`.
+Buat sebuah program kalkulator yang memanfaatkan `process.argv` untuk menerima input user.
 
 ```javascript
 const argv = process.argv;
