@@ -73,7 +73,7 @@ Apabila kita tidak sadar bahwa sebuah nama variable sudah digunakan sebelumnya, 
 Hoisting merupakan mekanisme pada JavaScript yang akan memindahkan deklarasi variable ke atas scope sebelum dieksekusi. Perhatikan contoh di bawah.
 
 ```javascript
-console.log (message);
+console.log(message);
 var message = "Hello World";
 
 // Hasil hoisting

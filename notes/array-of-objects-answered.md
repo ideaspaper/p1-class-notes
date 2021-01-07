@@ -80,8 +80,7 @@ const users = [
     userId: 7839,
     username: 'Acong',
     email: 'a@cong.com',
-    maritalStatus: false,
-    scores: [8, 8, 10]
+    maritalStatus: false
   },
   {
     userId: 7840,
