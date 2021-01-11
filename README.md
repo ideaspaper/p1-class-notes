@@ -10,7 +10,7 @@
 - [Review OOP, Interaksi Antar File (module.exports)](#)
 - [Review OOP](#)
 - [Callback, fs.readFile (JSON), .gitignore, npm](#)
-- [MVC (sync)](./mvc-sync.md)
+- [MVC (sync)](./notes/mvc-sync.md)
 - [MVC (async)](#)
 - [Database Modeling with SQL (query)](#)
 - [Review MVC + callback (optional)](#)
