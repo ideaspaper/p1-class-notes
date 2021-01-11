@@ -4,15 +4,15 @@
 
 MVC (model–view–controller) merupakan arsitektur/desain yang memisahkan suatu aplikasi menjadi 3 komponen utama, yaitu:
 
-- Model, yang berhubungan dengan semua logic tentang pengolahan **data**.
-- View, yang berhubungan dengan semua logic tentang **tampilan/UI (user interface)**.
-- Controller, yang berfungsi sebagai **jembatan** penghubung antara **model dengan view**.
+- `Model`, yang berhubungan dengan semua logic tentang pengolahan **data**.
+- `View`, yang berhubungan dengan semua logic tentang **tampilan/UI (user interface)**.
+- `Controller`, yang berfungsi sebagai **jembatan** penghubung antara `Model` dengan `View`.
 
 Apa keuntungan dari arsitektur MVC? Beberapa adalah seperti di bawah.
 
 1. **Faster development process**. Pengerjaan suatu website sering kali melibatkan lebih dari satu programmer. Beberapa programmer bertugas untuk mengerjakan bagian front end (User Interface), sedangkan beberapa programmer lainnya bertugas untuk mengerjakan back end (business logic dan database). Pengerjaan parallel seperti ini akan mempersingkat waktu development sebuah aplikasi.
-1. **Ability to provide multiple views**. Karena `view` merupakan komponen yang terpisah dari business logic dan database, maka kita dimungkinkan untuk membuat banyak jenis `view`. Sebagai contoh, saat ini aplikasi yang dibuat hanya memiliki tampilan untuk layar komputer. Apabila kedepannya kita diminta membuat tampilan untuk layar smartphone, kita hanya perlu membuat `view` baru saja.
-1. **The modification does not affect each other**. Perubahan proses logic pada `model` tidak akan mempengaruhi kode program pada `view`. Demikian pula sebaliknya, perubahan pada tampilan `view` tidak akan mempengaruhi `model`.
+1. **Ability to provide multiple views**. Karena `View` merupakan komponen yang terpisah dari business logic dan database, maka kita dimungkinkan untuk membuat banyak jenis `View`. Sebagai contoh, saat ini aplikasi yang dibuat hanya memiliki tampilan untuk layar komputer. Apabila kedepannya kita diminta membuat tampilan untuk layar smartphone, kita hanya perlu membuat `View` baru saja.
+1. **The modification does not affect each other**. Perubahan proses logic pada `Model` tidak akan mempengaruhi kode program pada `View`. Demikian pula sebaliknya, perubahan pada tampilan `View` tidak akan mempengaruhi `Model`.
 
 ```
 ╭─────────╮
