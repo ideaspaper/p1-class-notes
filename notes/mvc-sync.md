@@ -16,22 +16,21 @@ Apa keuntungan dari arsitektur MVC? Beberapa adalah seperti di bawah.
 
 ```
                     ╭──────────────╮
-╭────────╮          |              |
-│        | Request  │              ├───────────╮
-│  USER  ├─────────►│  CONTROLLER  │           │ Request
-│        │          │              │           │ Information
+╭────────╮          |              | Request
+│        | Request  │              | Information
+│  USER  ├─────────►│  CONTROLLER  ├───────────╮
+│        │          │              │           │
 ╰────────╯          │              │           │
   ▲                 ╰──┬───────────╯           │
-  │                    │        ▲              │
-  │               Send │        │ Response     │
-  │               Data │        │ Information  │
+  │               Send │        ▲              │
+  │               Data │        │              │
   │ Response           │        │              ▼
 ╭─┴────────────╮       │        │       ╭─────────────╮
 │              │       │        │       │             │
 │              │       │        │       │             │
 │     VIEW     │◄──────╯        ╰───────┤    MODEL    │
-│              │                        │             │
-│              │                        │             │
+│              │               Response │             │
+│              │            Information │             │
 ╰──────────────╯                        ╰─────────────╯
 ```
 
