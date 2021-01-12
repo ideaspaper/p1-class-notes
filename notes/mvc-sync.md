@@ -15,30 +15,24 @@ Apa keuntungan dari arsitektur MVC? Beberapa adalah seperti di bawah.
 1. **The modification does not affect each other**. Perubahan proses logic pada `Model` tidak akan mempengaruhi kode program pada `View`. Demikian pula sebaliknya, perubahan pada tampilan `View` tidak akan mempengaruhi `Model`.
 
 ```
-╭─────────╮
-│         │ Request
-│  User   ├───────────╮
-│         │           │
-╰─────────╯           │
-  ▲                   ▼
-  │ Response       ╭──────────────╮
-  │                │              │
-  │                │              ├───────────╮
-  │                │  Controller  │           │ Request
-  │                │              │           │ Information
-  │                │              │           │
-  │                ╰──┬───────────╯           │
-  │                   │        ▲              │
-  │              Send │        │ Response     │
-  │              Data │        │ Information  │
-  │                   │        │              ▼
-╭─┴────────────╮      │        │       ╭─────────────╮
-│              │      │        │       │             │
-│              │      │        │       │             │
-│     View     │◄─────╯        ╰───────┤    Model    │
-│              │                       │             │
-│              │                       │             │
-╰──────────────╯                       ╰─────────────╯
+                    ╭──────────────╮
+╭────────╮          |              |
+│        | Request  │              ├───────────╮
+│  User  ├─────────►│  Controller  │           │ Request
+│        │          │              │           │ Information
+╰────────╯          │              │           │
+  ▲                 ╰──┬───────────╯           │
+  │                    │        ▲              │
+  │               Send │        │ Response     │
+  │               Data │        │ Information  │
+  │ Response           │        │              ▼
+╭─┴────────────╮       │        │       ╭─────────────╮
+│              │       │        │       │             │
+│              │       │        │       │             │
+│     View     │◄──────╯        ╰───────┤    Model    │
+│              │                        │             │
+│              │                        │             │
+╰──────────────╯                        ╰─────────────╯
 ```
 
 Proses dari diagram di atas adalah:
@@ -165,7 +159,7 @@ class Model {
   static read() {
     // Your code here
     // 1. Baca file app-db.json, kemudian convert hasilnya menjadi array of objects
-    // 2. Buat array of instance dari array of objects tersebut
+    // 2. Buat array of instances dari array of objects tersebut
     // 3. Return hasilnya
   }
 }
@@ -205,10 +199,10 @@ Pada release ini, mari kita coba mengimplementasikan command `create`. Command i
 ```javascript
 static create() {
   // Your code here
-  // 1. Baca file app-db.json, kemudian buat array of instance dari hasil pembacaan tersebut
+  // 1. Baca file app-db.json, kemudian buat array of instances dari hasil pembacaan tersebut
   // 2. Buat sebuah instance customer dengan nomor id yang otomatis increment
-  // 3. Push instance tersebut ke array of instance dari poin 1
-  // 4. Tulis array of instance tersebut ke file app-db.json
+  // 3. Push instance tersebut ke array of instances dari poin 1
+  // 4. Tulis array of instances tersebut ke file app-db.json
 }
 ```
 
@@ -225,10 +219,78 @@ Successfully created: CustomerVIP { id: 4, name: 'Budi', age: 16, privilege: 'VI
 
 ## Release 3
 
-Pada release ini, kita akan mengimplementasikan command `update`. Command ini akan mencari instance yang dimaksud berdasarkan `id`-nya, kemudian mengganti datanya.
+Pada release ini, kita akan mengimplementasikan command `update`. Command ini akan mencari instance yang dimaksud berdasarkan `id`-nya, kemudian mengganti datanya. Buatlah static method baru pada class `Model`. Kerangka kode program dari method tersebut adalah seperti di bawah.
+
+```javascript
+static update() {
+  // Your code here
+  // 1. Baca file app-db.json, kemudian buat array of instances dari hasil pembacaan tersebut
+  // 2. Cari instance dengan property index yang sama dengan yang dicari, return false jika tidak ditemukan
+  // 3. Buat sebuah instance customer dengan nomor id yang ditemukan pada poin 2
+  // 4. Replace instance lama dengan instance baru
+  // 5. Tulis array of instances tersebut ke file app-db.json
+}
+```
+
+Lakukan penyesuaian pada `Controller.js` dan `View.js` sesuai dengan konsep MVC yang telah dipahami. Hasil yang diharapkan dari `View` adalah seperti di bawah.
+
+```
+[Command 1]
+node index.js update 4 'Budi S.' 19 Regular
+
+[Tampilan view 1]
+UPDATE OPERATION
+Old data: CustomerVIP { id: 4, name: 'Budi', age: 16, privilege: 'VIP' }
+New data: CustomerRegular {
+  id: 4,
+  name: 'Budi S.',
+  age: 19,
+  privilege: 'Regular'
+}
+
+[Command 2]
+node index.js update 5 Uvuvwevwe 25 VIP
+
+[Tampilan view 2]
+UPDATE OPERATION
+No data found
+```
 
 ## Release 4
 
-Pada release ini, kita akan mengimplementasikan command `delete`. Command ini akan mencari instance yang dimaksud berdasarkan `id`-nya, kemudian menghapusnya.
+Pada release ini, kita akan mengimplementasikan command `remove` (karena keyword `delete` tidak dapat digunakan ketika mode `'use strict'`). Command ini akan mencari instance yang dimaksud berdasarkan `id`-nya, kemudian menghapusnya. Buatlah static method baru pada class `Model`. Kerangka kode program dari method tersebut adalah seperti di bawah.
+
+```javascript
+static remove() {
+  // Your code here
+  // 1. Baca file app-db.json, kemudian buat array of instances dari hasil pembacaan tersebut
+  // 2. Cari instance dengan property index yang sama dengan yang dicari, return false jika tidak ditemukan
+  // 3. Remove instance tersebut dari array
+  // 4. Tulis array of instances tersebut ke file app-db.json
+}
+```
+
+Lakukan penyesuaian pada `Controller.js` dan `View.js` sesuai dengan konsep MVC yang telah dipahami. Hasil yang diharapkan dari `View` adalah seperti di bawah.
+
+```
+[Command 1]
+node index.js remove 4
+
+[Tampilan view 1]
+REMOVE OPERATION
+Removed data: CustomerRegular {
+  id: 4,
+  name: 'Budi S.',
+  age: 19,
+  privilege: 'Regular'
+}
+
+[Command 2]
+node index.js remove 5
+
+[Tampilan view 2]
+REMOVE OPERATION
+No data found
+```
 
 [**Back to Home**](./../README.md)
