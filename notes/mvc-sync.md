@@ -53,9 +53,182 @@ Proses dari diagram di atas adalah:
      1. `Controller` akan mengirimkan data langsung ke `View`.
      1. `View` akan memberikan response ke `User`.
 
-## Practice
+# Practice
 
-Setelah kita memahami konsep di atas, mari kita mencoba membuat aplikasi CRUD (Create, Read, Update, Delete) sederhana. Aplikasi ini tidak menggunakan database dan hanya ditujukan untuk memberi gambaran penerapan konsep MVC sederhana.
+Setelah kita memahami konsep di atas, mari kita mencoba membuat aplikasi CRUD (Create, Read, Update, Delete). Aplikasi ini tidak menggunakan database dan hanya ditujukan untuk memberi gambaran penerapan konsep MVC sederhana.
 
+## Release 0
+
+Kita akan membuat sebuah aplikasi pengolahan data customer dengan CLI. Struktur folder dari aplikasi ini adalah sebagai berikut.
+
+```
+.
+├── controllers
+│   └── Controller.js
+├── index.js
+├── models
+└── views
+    └── View.js
+```
+
+Kita akan mulai dari langkah paling sederhana, yaitu membuat command `help`. Ingat bahwa command dari `User` merupakan request untuk `Controller`. Karena request ini tidak membutuhkan interaksi dengan data, maka `Controller` akan meneruskannya ke `View`. Selanjutnya, `User` akan mendapatkan respon dari `View`. Gunakan `process.argv` untuk menerima command `help` dari `User`. Tampilan `View` yang diharapkan dari command `help` adalah seperti di bawah.
+
+```
+[Command]
+node index.js help
+
+[Tampilan view]
+Available commands:
+  - help
+  - create <name> <age> <privilege>
+  - read
+  - update <id> <name> <age> <privilege>
+  - remove <id>
+```
+
+## Release 1
+
+Setelah membuat implementasi command `help`, pada release ini kita akan membuat implementasi command `read`. Tambahkan file `app-db.json` sejajar dengan `index.js`. Isi dari file tersebut adalah seperti di bawah. File ini akan berfungsi sebagai database sederhana kita.
+
+```json
+[
+  {
+    "id": 1,
+    "name": "Acong",
+    "age": 18,
+    "privilege": "Regular"
+  },
+  {
+    "id": 2,
+    "name": "Djoko",
+    "age": 19,
+    "privilege": "Regular"
+  },
+  {
+    "id": 3,
+    "name": "Sitorus",
+    "age": 21,
+    "privilege": "VIP"
+  }
+]
+```
+
+Saat ini terdapat dua jenis customer yaitu Regular dan VIP. Maka dari itu, mari kita buat class masing-masing dalam file terpisah. Letakkan semua file tersebut ke dalam folder `models`.
+
+`Customer.js`
+
+```javascript
+class Customer {
+  constructor(id, name, age, privilege) {
+    this.id = id;
+    this.name = name;
+    this.age = age;
+    this.privilege = privilege;
+  }
+}
+
+module.exports = Customer;
+```
+
+`CustomerRegular.js`
+
+```javascript
+const Customer = require('./Customer');
+
+class CustomerRegular extends Customer {
+  constructor(id, name, age) {
+    super(id, name, age, 'Regular');
+  }
+}
+
+module.exports = CustomerRegular;
+```
+
+`CustomerVIP.js`
+
+```javascript
+const Customer = require('./Customer');
+
+class CustomerVIP extends Customer {
+  constructor(id, name, age) {
+    super(id, name, age, 'VIP');
+  }
+}
+
+module.exports = CustomerVIP;
+```
+
+Karena terdapat lebih dari satu jenis `Customer`, dan dimungkinkan akan banyak jenis lain kedepannya, maka buatlah juga factory-nya. Letakkan file factory tersebut pada folder `models`. Setelah itu, masih pada folder yang sama, buatlah file `Model.js`. Kerangka kode program dari file tersebut adalah seperti di bawah.
+
+```javascript
+class Model {
+  static read() {
+    // Your code here
+    // 1. Baca file app-db.json, kemudian convert hasilnya menjadi array of objects
+    // 2. Buat array of instance dari array of objects tersebut
+    // 3. Return hasilnya
+  }
+}
+
+module.exports = Model;
+```
+
+Lakukan penyesuaian pada `Controller.js` dan `View.js` sesuai dengan konsep MVC yang telah dipahami. Hasil yang diharapkan dari `View` adalah seperti di bawah.
+
+```
+[Command]
+node index.js read
+
+[Tampilan view]
+READ OPERATION
+[
+  CustomerRegular {
+    id: 1,
+    name: 'Acong',
+    age: 18,
+    privilege: 'Regular'
+  },
+  CustomerRegular {
+    id: 2,
+    name: 'Djoko',
+    age: 19,
+    privilege: 'Regular'
+  },
+  CustomerVIP { id: 3, name: 'Sitorus', age: 21, privilege: 'VIP' }
+]
+```
+
+## Release 2
+
+Pada release ini, mari kita coba mengimplementasikan command `create`. Command ini akan membuat sebuah instance baru, kemudian menuliskannya ke `app-db.json`. Buatlah static method baru pada class `Model`. Kerangka kode program dari method tersebut adalah seperti di bawah.
+
+```javascript
+static create() {
+  // Your code here
+  // 1. Baca file app-db.json, kemudian buat array of instance dari hasil pembacaan tersebut
+  // 2. Buat sebuah instance customer dengan nomor id yang otomatis increment
+  // 3. Push instance tersebut ke array of instance dari poin 1
+  // 4. Tulis array of instance tersebut ke file app-db.json
+}
+```
+
+Lakukan penyesuaian pada `Controller.js` dan `View.js` sesuai dengan konsep MVC yang telah dipahami. Hasil yang diharapkan dari `View` adalah seperti di bawah.
+
+```
+[Command]
+node index.js create Budi 16 VIP
+
+[Tampilan view]
+CREATE OPERATION
+Successfully created: CustomerVIP { id: 4, name: 'Budi', age: 16, privilege: 'VIP' }
+```
+
+## Release 3
+
+Pada release ini, kita akan mengimplementasikan command `update`. Command ini akan mencari instance yang dimaksud berdasarkan `id`-nya, kemudian mengganti datanya.
+
+## Release 4
+
+Pada release ini, kita akan mengimplementasikan command `delete`. Command ini akan mencari instance yang dimaksud berdasarkan `id`-nya, kemudian menghapusnya.
 
 [**Back to Home**](./../README.md)
