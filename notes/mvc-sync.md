@@ -65,7 +65,7 @@ Kita akan membuat sebuah aplikasi pengolahan data customer dengan CLI. Struktur 
     └── View.js
 ```
 
-Kita akan mulai dari langkah paling sederhana, yaitu membuat command `help`. Ingat bahwa command dari `User` merupakan request untuk `Controller`. Karena request ini tidak membutuhkan interaksi dengan data, maka `Controller` akan meneruskannya ke `View`. Selanjutnya, `User` akan mendapatkan respon dari `View`. Gunakan `process.argv` untuk menerima command `help` dari `User`. Tampilan `View` yang diharapkan dari command `help` adalah seperti di bawah.
+Kita akan mulai dari langkah paling sederhana, yaitu membuat command `help`. Ingat bahwa command dari `User` merupakan request untuk `Controller`. Karena request ini tidak membutuhkan interaksi dengan data, maka `Controller` akan meneruskannya ke `View`. Selanjutnya, `User` akan mendapatkan respon dari `View`. Gunakan `process.argv` untuk menerima command `help` dari `User` pada `index.js`. Tampilan `View` yang diharapkan dari command `help` adalah seperti di bawah.
 
 ```
 [Command]
@@ -292,5 +292,7 @@ node index.js remove 5
 REMOVE OPERATION
 No data found
 ```
+
+[Answers](./mvc-sync-answered.md)
 
 [**Back to Home**](./../README.md)
