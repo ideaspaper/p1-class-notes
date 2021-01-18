@@ -1,16 +1,5 @@
 # Table of Contents
 
-- [Debugging](#)
-- [Recursive](#)
-- [Sort and Searching](#)
 - [ES6 Variables, Nested Party, Process Argv, Arrow Function](./notes/es6-variables-nested-party-process-argv-arrow-function.md)
-- [OOP Basic, Method Chaining, fs.readFileSync](#)
-- [Karakteristik OOP, Interaksi Antar Class](#)
-- [Composition, Aggregation, Factory Method](#)
-- [Review OOP, Interaksi Antar File (module.exports)](#)
-- [Review OOP](#)
-- [Callback, fs.readFile (JSON), .gitignore, npm](#)
-- [MVC (sync)](./notes/mvc-sync.md)
-- [MVC (async)](#)
-- [Database Modeling with SQL (query)](#)
-- [Review MVC + callback (optional)](#)
+- [MVC (Sync)](./notes/mvc-sync.md)
+- [Express Introduction](./express-introduction.md)
