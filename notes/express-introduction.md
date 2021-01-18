@@ -150,7 +150,7 @@ nodemon index.js
 npx nodemon index.js
 ```
 
-Apabila terjadi perubahan pada isi folder project kita, maka nodemon akan melakukan restart secara otomatis.
+Apabila terjadi perubahan pada isi folder project kita, maka Nodemon akan melakukan restart secara otomatis.
 
 ## Request Params
 
