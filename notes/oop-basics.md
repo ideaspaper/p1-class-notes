@@ -196,6 +196,6 @@ board.printWinner();        // Mencetak pemenang
 
 Kita hanya perlu membuat instance Board kemudian menjalankan method-method yang tersedia. Kita tidak perlu tahu detil kerja dari setiap method yang ada. Dapat dilihat juga pada driver code di atas kita tidak perlu repot-repot mem-passing arguments seperti waktu kita menerapkan konsep modular function. Hal tersebut dikarenakan setiap instance sudah memiliki data masing-masing (dalam bentuk properti).
 
-Contoh kode program JSRacer versi OOP dapat dilihat [di sini](https://github.com/ideaspaper/p1-jsracer-oop) (private repo hanya untuk keperluan lecture).
+Contoh kode program JSRacer versi OOP dapat dilihat [di sini](https://github.com/ideaspaper/p1-jsracer-oop/blob/master/README.md) (private repo hanya untuk keperluan lecture).
 
 [**Back to Home**](./../README.md)
