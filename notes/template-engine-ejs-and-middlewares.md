@@ -65,7 +65,7 @@ Saat kita menggunakan EJS, kita dapat menyiapkan file template HTML (dalam forma
 </html>
 ```
 
-Setelah itu, edit `app.js` JavaScript kita menjadi seperti di bawah.
+Setelah itu, edit `app.js` JavaScript kita menjadi seperti di bawah. [Sumber](https://expressjs.com/en/guide/using-template-engines.html).
 
 ```javascript
 app.set('view engine', 'ejs'); // Set EJS sebagai view engine
