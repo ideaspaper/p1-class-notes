@@ -31,7 +31,7 @@ npm init -y
 Jika proses inisialisasi di atas sudah dilakukan, maka NPM akan membuat file `package.json` dalam folder kita. File tersebut berisi informasi-informasi dari project kita dan digunakan oleh NPM untuk mengelola dependensi kita. Langkah selanjutnya adalah instalasi Express yang dapat dilakukan menggunakan command di bawah.
 
 ```
-npm install express --save
+npm install --save express
 ```
 
 Setelah proses instalasi selesai, maka terdapat tambahan pasangan key-value baru berikut.
