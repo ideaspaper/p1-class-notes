@@ -4,3 +4,4 @@
 - [OOP Basics](./notes/oop-basics.md)
 - [MVC (Sync)](./notes/mvc-sync.md)
 - [Express Introduction](./notes/express-introduction.md)
+- [Template Engine EJS and Middlewares](./notes/template-engine-ejs-and-middlewares.md)
