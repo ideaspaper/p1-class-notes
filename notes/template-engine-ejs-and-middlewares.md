@@ -214,5 +214,5 @@ Berikut adalah contoh CSS untuk styling table yang diambil [dari sini](https://w
 ```
 
 1. Tambahkan folder `public/css` pada root folder project kita.
-1. Buat file `style.css` pada folder di poin 1, dengan isi seperti contoh di atas.
+1. Buat file `style.css` pada folder di poin sebelumnya, dengan isi seperti contoh di atas.
 1. Gunakan `style.css` tersebut pada template EJS yang menampilkan semua user dalam bentuk tabel.
